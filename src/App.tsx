@@ -8,7 +8,7 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-ethiq-bg">
+    <div className="min-h-screen flex flex-col bg-ethiq-main">
       <Header />
       
       <main className="flex-1 flex flex-col gap-[120px] md:gap-[180px] pt-[60px]">
@@ -24,7 +24,7 @@ function App() {
         {/* ETHIQ Divider */}
         <EthiqDivider />
         
-        {/* Real People Section */}
+        {/* Real People Section + Video Section */}
         <RealPeopleSection />
       </main>
 

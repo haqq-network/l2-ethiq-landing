@@ -12,65 +12,90 @@ const RealPeopleSection = () => {
   }
 
   return (
-    <section className="flex flex-col items-center px-5 w-full">
-      {/* Section Title */}
-      <h2 className="gradient-text-section font-medium text-[28px] md:text-[40px] text-center tracking-[-0.56px] md:tracking-[-0.8px] leading-[1.2] max-w-[307px] md:max-w-[724px]">
-        Real People. Real Apps. Real Value.
-      </h2>
+    <>
+      {/* Title Section */}
+      <section className="flex flex-col items-center px-5 w-full">
+        {/* Section Title */}
+        <h2 className="gradient-text-section font-medium text-[28px] md:text-[40px] text-center tracking-[-0.56px] md:tracking-[-0.8px] leading-[1.2] w-[307px] md:w-[724px] md:h-[107px] flex items-center justify-center">
+          Real People. Real Apps. Real Value.
+        </h2>
 
-      {/* Description */}
-      <div className="max-w-[980px] w-full p-5 mt-4 md:mt-0">
-        <div className="flex flex-col items-center justify-center h-auto md:h-[121px]">
-          <p className="text-[14px] md:text-[20px] text-ethiq-text-muted md:gradient-text-paragraph text-center tracking-[-0.56px] md:tracking-[-0.8px] leading-[1.36] max-w-[273px] md:max-w-[768px]">
-            Ethiq is an integral part of the Haqq ecosystem. By uniting with Haqq Network, Firoza Finance, BarakaFi, and others, it aims to generate economic value for its users.
-          </p>
-        </div>
-      </div>
-
-      {/* Play Button */}
-      <button
-        onClick={handlePlayVideo}
-        className="btn-primary w-full md:w-[174px] mt-4 md:mt-0"
-      >
-        <span className="text-[14px] font-medium">Play Video</span>
-      </button>
-
-      {/* Video Section */}
-      <div className="w-full max-w-[980px] mt-8 md:mt-[160px]">
-        <div className="card p-5 bg-[#141414]">
-          <div 
-            className="relative w-full rounded-lg overflow-hidden cursor-pointer"
-            style={{ aspectRatio: '295/546' }}
-            onClick={handlePlayVideo}
-          >
-            {/* Video Placeholder / Thumbnail */}
-            <div className="absolute inset-0 opacity-[0.32] md:opacity-[0.32]">
-              <img
-                src="/assets/images/video-placeholder.jpg"
-                alt="Video thumbnail"
-                className="w-full h-full object-cover rounded-lg"
-              />
-            </div>
-            
-            {/* Play overlay */}
-            {!isVideoPlaying && (
-              <div className="absolute inset-0 flex items-center justify-center bg-transparent hover:bg-black/10 transition-colors">
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-white/20 transition-colors">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="white"
-                    className="ml-1"
-                  >
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-              </div>
-            )}
+        {/* Description - Desktop */}
+        <div className="hidden md:flex max-w-[980px] w-full p-5 h-[121px] items-center">
+          <div className="flex flex-col items-center justify-center w-full">
+            <p className="gradient-text-paragraph text-[20px] text-center tracking-[-0.8px] leading-[1.36] w-[768px]">
+              Ethiq is an integral part of the Haqq ecosystem. By uniting with Haqq Network, Firoza Finance, BarakaFi, and others, it aims to generate economic value for its users.
+            </p>
           </div>
         </div>
-      </div>
+
+        {/* Description - Mobile */}
+        <div className="md:hidden mt-8 h-[73px]">
+          <div className="flex flex-col items-center justify-center h-[70px] w-[307px]">
+            <p className="text-[14px] text-ethiq-muted text-center tracking-[-0.56px] leading-[1.36] w-[273px]">
+              Ethiq is an integral part of the Haqq ecosystem. By uniting with Haqq Network, Firoza Finance, BarakaFi, and others, it aims to generate economic value for its users.
+            </p>
+          </div>
+        </div>
+
+        {/* Play Button - Desktop */}
+        <button
+          onClick={handlePlayVideo}
+          className="hidden md:flex btn-primary w-[174px]"
+        >
+          <span className="font-medium text-[14px] text-black leading-none">Play Video</span>
+        </button>
+      </section>
+
+      {/* Video Section */}
+      <section className="flex flex-col items-center px-5 w-full md:pb-[160px]">
+        <div className="max-w-[980px] w-full">
+          {/* Mobile Video */}
+          <div className="md:hidden flex flex-col gap-6 items-center p-5 rounded-2xl w-full">
+            <button
+              onClick={handlePlayVideo}
+              className="bg-white flex items-center justify-center px-3 py-4 rounded-xl w-full hover:bg-gray-100 transition-colors"
+            >
+              <span className="font-medium text-[14px] text-black leading-none">Play Video</span>
+            </button>
+            
+            <div 
+              className="relative w-full rounded-lg overflow-hidden cursor-pointer"
+              style={{ aspectRatio: '16/9' }}
+              onClick={handlePlayVideo}
+            >
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/DOJ_eWvaBGY"
+                title="ETHIQ Video"
+                frameBorder="0"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full rounded-lg"
+              />
+            </div>
+          </div>
+
+          {/* Desktop Video Card */}
+          <div className="hidden md:flex bg-ethiq-card p-5 rounded-2xl w-full items-center justify-center">
+            <div 
+              className="relative w-[940px] h-[529px] rounded-lg overflow-hidden"
+            >
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/DOJ_eWvaBGY"
+                title="ETHIQ Video"
+                frameBorder="0"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full rounded-lg"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Video Modal */}
       {isVideoPlaying && (
@@ -104,7 +129,7 @@ const RealPeopleSection = () => {
           </div>
         </div>
       )}
-    </section>
+    </>
   )
 }
 
