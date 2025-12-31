@@ -1,34 +1,40 @@
 const EthiqDivider = () => {
   return (
-    <section className="flex flex-col items-center justify-center px-5 w-full h-[58px] md:h-[174px]">
-      <div className="flex items-center justify-center gap-[10px] md:gap-[21px] w-full max-w-[1095px]">
+    <section 
+      className="flex flex-col items-center justify-center px-5 w-full h-[58px] md:h-[174px]"
+      aria-hidden="true"
+    >
+      <div className="flex items-center justify-center gap-[10px] md:gap-[21px] w-full max-w-[1095px] scroll-fade-in">
         {/* Left Diamond */}
-        <div className="relative w-8 h-8 md:w-[72px] md:h-[72px] shrink-0">
+        <div className="relative w-8 h-8 md:w-[72px] md:h-[72px] shrink-0 animate-float">
           <img 
             src="/assets/images/diamond-outer.svg" 
             alt="" 
             className="absolute inset-0 w-full h-full"
+            loading="lazy"
           />
           <img 
             src="/assets/images/diamond-inner.svg" 
             alt="" 
             className="absolute inset-0 w-full h-full"
+            loading="lazy"
           />
           <img 
             src="/assets/images/diamond-fill.svg" 
             alt="" 
             className="absolute inset-0 w-full h-full"
+            loading="lazy"
           />
         </div>
 
         {/* Left Connector Line - Desktop */}
         <div className="hidden md:flex flex-1 h-[1px] items-center shrink-0">
-          <div className="w-full h-[1px] bg-gradient-to-r from-white/60 to-white/20" />
+          <div className="w-full h-[1px] bg-gradient-to-r from-white/60 to-white/20 animate-line-grow" />
         </div>
         
         {/* Left Connector Line - Mobile */}
         <div className="md:hidden flex flex-1 h-[1px] items-center shrink-0">
-          <div className="w-full h-[1px] bg-gradient-to-r from-white/60 to-white/20" />
+          <div className="w-full h-[1px] bg-gradient-to-r from-white/60 to-white/20 animate-line-grow" />
         </div>
 
         {/* ETHIQ Text */}
@@ -37,30 +43,34 @@ const EthiqDivider = () => {
             src="/assets/images/ethiq-text.svg" 
             alt="ETHIQ" 
             className="absolute inset-0 w-full h-full"
+            loading="lazy"
           />
         </div>
 
         {/* Right Connector Line - Desktop only */}
         <div className="hidden md:flex flex-1 h-[1px] items-center shrink-0">
-          <div className="w-full h-[1px] bg-gradient-to-l from-white/60 to-white/20" />
+          <div className="w-full h-[1px] bg-gradient-to-l from-white/60 to-white/20 animate-line-grow" style={{ animationDelay: '0.3s' }} />
         </div>
 
         {/* Right Diamond - Desktop only */}
-        <div className="hidden md:block relative w-[72px] h-[72px] shrink-0">
+        <div className="hidden md:block relative w-[72px] h-[72px] shrink-0 animate-float" style={{ animationDelay: '0.5s' }}>
           <img 
             src="/assets/images/diamond-outer.svg" 
             alt="" 
             className="absolute inset-0 w-full h-full"
+            loading="lazy"
           />
           <img 
             src="/assets/images/diamond-inner.svg" 
             alt="" 
             className="absolute inset-0 w-full h-full"
+            loading="lazy"
           />
           <img 
             src="/assets/images/diamond-fill.svg" 
             alt="" 
             className="absolute inset-0 w-full h-full"
+            loading="lazy"
           />
         </div>
       </div>

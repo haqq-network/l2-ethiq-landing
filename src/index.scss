@@ -289,7 +289,18 @@ $ethiq-text-gray: #bbbbbb;
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
   }
   to {
     opacity: 1;
@@ -306,10 +317,32 @@ $ethiq-text-gray: #bbbbbb;
   }
 }
 
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 @keyframes scaleIn {
   from {
     opacity: 0;
-    transform: scale(0.95);
+    transform: scale(0.9);
   }
   to {
     opacity: 1;
@@ -335,21 +368,101 @@ $ethiq-text-gray: #bbbbbb;
   }
 }
 
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes lineGrow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes textReveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes blurIn {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
 // Animation utility classes
 .animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-fade-in {
   animation: fadeIn 0.6s ease-out forwards;
 }
 
+.animate-fade-in-left {
+  animation: fadeInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 .animate-scale-in {
-  animation: scaleIn 0.6s ease-out forwards;
+  animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-pulse {
   animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-line-grow {
+  animation: lineGrow 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: left center;
+}
+
+.animate-text-reveal {
+  animation: textReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-blur-in {
+  animation: blurIn 0.8s ease-out forwards;
 }
 
 // Animation delays
@@ -358,16 +471,115 @@ $ethiq-text-gray: #bbbbbb;
 .animation-delay-300 { animation-delay: 0.3s; }
 .animation-delay-400 { animation-delay: 0.4s; }
 .animation-delay-500 { animation-delay: 0.5s; }
+.animation-delay-600 { animation-delay: 0.6s; }
+.animation-delay-700 { animation-delay: 0.7s; }
+.animation-delay-800 { animation-delay: 0.8s; }
 
-// Initial state for animations
+// Initial state for animations (use with scroll trigger)
 .animate-on-scroll {
   opacity: 0;
+  
+  &.is-visible {
+    opacity: 1;
+  }
+}
+
+// Scroll-triggered animation classes
+.scroll-fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-fade-in {
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+  
+  &.is-visible {
+    opacity: 1;
+  }
+}
+
+.scroll-scale-in {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  &.is-visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.scroll-blur-in {
+  opacity: 0;
+  filter: blur(10px);
+  transition: opacity 0.8s ease-out, 
+              filter 0.8s ease-out;
+  
+  &.is-visible {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+// Stagger children animations
+.stagger-children {
+  > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+  
+  &.is-visible > * {
+    opacity: 1;
+    transform: translateY(0);
+    
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        transition-delay: #{$i * 0.1}s;
+      }
+    }
+  }
 }
 
 // Gradient shimmer effect
 .gradient-shimmer {
   background-size: 200% 100%;
   animation: shimmer 3s ease-in-out infinite;
+}
+
+// Hover effects
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.hover-glow {
+  transition: box-shadow 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+  }
+}
+
+.hover-scale {
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.02);
+  }
 }
 
 // =============================================================================
@@ -399,6 +611,110 @@ $ethiq-text-gray: #bbbbbb;
   .btn-primary,
   .btn-secondary {
     width: 100%;
+  }
+}
+
+// =============================================================================
+// Accessibility
+// =============================================================================
+
+// Screen reader only class
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Focus visible styles
+:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+// Skip link styles
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 9999;
+  padding: 1rem;
+  background: white;
+  color: black;
+  
+  &:focus {
+    top: 0;
+  }
+}
+
+// Reduced motion preference
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .animate-float,
+  .animate-pulse,
+  .animate-glow,
+  .gradient-shimmer {
+    animation: none !important;
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .card {
+    border: 1px solid white;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    border: 2px solid currentColor;
+  }
+}
+
+// =============================================================================
+// Print Styles
+// =============================================================================
+
+@media print {
+  .bg-ethiq-main,
+  .bg-ethiq-card,
+  .bg-ethiq-nav {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .gradient-text-hero,
+  .gradient-text-section,
+  .gradient-text-paragraph {
+    background: none !important;
+    -webkit-text-fill-color: black !important;
+    color: black !important;
+  }
+  
+  video,
+  iframe {
+    display: none !important;
+  }
+  
+  a {
+    text-decoration: underline;
+    
+    &::after {
+      content: " (" attr(href) ")";
+      font-size: 0.8em;
+    }
   }
 }
 
