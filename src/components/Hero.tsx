@@ -1,5 +1,5 @@
-import videoBgWebm from '../assets/bg_1_blue_below.webm'
 import videoBgMp4 from '../assets/bg_1_blue_below_.mp4'
+import { ctaLinks } from '../config/links'
 
 const Hero = () => {
   return (
@@ -18,7 +18,6 @@ const Hero = () => {
           aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src={videoBgWebm} type="video/webm" />
           <source src={videoBgMp4} type="video/mp4" />
         </video>
       </div>
@@ -56,20 +55,24 @@ const Hero = () => {
           aria-label="Primary actions"
         >
           <a 
-            href="#bridge" 
+            href={ctaLinks.bridge.href}
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-primary w-full md:w-auto hover-lift"
-            aria-label="Bridge to Ethiq blockchain"
+            aria-label={ctaLinks.bridge.ariaLabel}
           >
             <span className="font-medium text-[14px] text-black leading-none" aria-hidden="true">→</span>
-            <span className="font-medium text-[14px] text-black leading-none">Bridge to Ethiq</span>
+            <span className="font-medium text-[14px] text-black leading-none">{ctaLinks.bridge.label}</span>
           </a>
           <a 
-            href="#build" 
+            href={ctaLinks.build.href}
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-secondary w-full md:w-[174px] hover-glow"
-            aria-label="Start building on Ethiq"
+            aria-label={ctaLinks.build.ariaLabel}
           >
             <span className="font-medium text-[14px] text-white leading-none" aria-hidden="true">→</span>
-            <span className="font-medium text-[14px] text-white leading-none">Start building</span>
+            <span className="font-medium text-[14px] text-white leading-none">{ctaLinks.build.label}</span>
           </a>
         </nav>
 

@@ -1,3 +1,5 @@
+import GradientBorderCard from './GradientBorderCard'
+
 const ValuesSection = () => {
   const values = [
     {
@@ -59,35 +61,40 @@ const ValuesSection = () => {
         aria-label="Value propositions"
       >
         {values.map((value, index) => (
-          <article
+          <GradientBorderCard
             key={value.title}
-            className="card flex flex-col items-center justify-center gap-6 p-10 w-full md:w-[250px] h-[138px] hover-lift"
-            role="listitem"
+            className="w-full md:w-[250px] h-[138px] hover-lift"
+            innerClassName="flex flex-col items-center justify-center gap-6 p-10"
             style={{ transitionDelay: `${index * 0.1}s` }}
           >
-            {/* Icon */}
-            <div 
-              className="flex items-center justify-center w-[42px] h-[42px]"
-              aria-hidden="true"
+            <article
+              role="listitem"
+              className="flex flex-col items-center justify-center gap-6 w-full"
             >
-              <div className={value.rotation}>
-                <img
-                  src={value.icon}
-                  alt=""
-                  className="w-[42px] h-[42px]"
-                  loading="lazy"
-                />
+              {/* Icon */}
+              <div 
+                className="flex items-center justify-center w-[42px] h-[42px]"
+                aria-hidden="true"
+              >
+                <div className={value.rotation}>
+                  <img
+                    src={value.icon}
+                    alt=""
+                    className="w-[42px] h-[42px]"
+                    loading="lazy"
+                  />
+                </div>
               </div>
-            </div>
 
-            {/* Title */}
-            <h3 className="font-medium md:font-normal text-[20px] text-white text-center tracking-[-0.4px] leading-none w-full">
-              {value.title}
-            </h3>
-            
-            {/* Screen reader only description */}
-            <span className="sr-only">{value.description}</span>
-          </article>
+              {/* Title */}
+              <h3 className="font-medium md:font-normal text-[20px] text-white text-center tracking-[-0.4px] leading-none w-full">
+                {value.title}
+              </h3>
+              
+              {/* Screen reader only description */}
+              <span className="sr-only">{value.description}</span>
+            </article>
+          </GradientBorderCard>
         ))}
       </div>
     </section>

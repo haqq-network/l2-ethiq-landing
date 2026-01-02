@@ -1,3 +1,5 @@
+import GradientBorderCard from './GradientBorderCard'
+
 const EcosystemSection = () => {
   return (
     <section 
@@ -18,13 +20,16 @@ const EcosystemSection = () => {
         </div>
 
         {/* Description Card - Desktop */}
-        <div className="hidden md:flex md:absolute md:top-[155px] md:left-0 card p-5 w-full h-[208px] items-center scroll-scale-in hover-glow">
+        <GradientBorderCard
+          className="hidden md:flex md:absolute md:top-[155px] md:left-0 w-full h-[208px] scroll-scale-in hover-glow"
+          innerClassName="flex items-center p-5"
+        >
           <div className="flex flex-col items-center justify-center w-full">
             <p className="gradient-text-paragraph text-[20px] text-center tracking-[-0.8px] leading-[1.36] w-[690px]">
               Ethiq is a Layer 2 blockchain built on Ethereum and part of the Superchain. It is designed to be the unified value layer for the Haqq ecosystem, aiming to create a shared economic engine that channels value back to the community.
             </p>
           </div>
-        </div>
+        </GradientBorderCard>
 
         {/* Description - Mobile (no card) */}
         <div className="md:hidden mt-8 scroll-fade-up">

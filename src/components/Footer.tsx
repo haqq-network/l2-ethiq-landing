@@ -1,42 +1,8 @@
-import videoBgWebm from '../assets/bg_1_blue_below.webm'
 import videoBgMp4 from '../assets/bg_1_blue_below_.mp4'
+import { navLinks, socialLinks } from '../config/links'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
-  
-  const navItems = [
-    { label: 'About', href: '#about' },
-    { label: 'Build', href: '#build' },
-    { label: 'Bridge', href: '#bridge' },
-    { label: 'Ecosystem', href: '#ecosystem' },
-  ]
-
-  const socialLinks = [
-    { 
-      label: 'X (Twitter)', 
-      href: 'https://twitter.com/ethiq',
-      icon: '/assets/icons/x-icon.svg',
-      iconLarge: '/assets/icons/x-icon-large.svg',
-      iconSize: 'w-[14px] h-[12px]',
-      iconSizeLarge: 'w-[39px] h-[39px]'
-    },
-    { 
-      label: 'Discord', 
-      href: 'https://discord.gg/ethiq',
-      icon: '/assets/icons/discord-icon.svg',
-      iconLarge: '/assets/icons/discord-icon-large.svg',
-      iconSize: 'w-[12px] h-[12px]',
-      iconSizeLarge: 'w-[39px] h-[39px]'
-    },
-    { 
-      label: 'Telegram', 
-      href: 'https://t.me/ethiq',
-      icon: '/assets/icons/telegram-icon.svg',
-      iconLarge: '/assets/icons/telegram-icon-large.svg',
-      iconSize: 'w-[16px] h-[11px]',
-      iconSizeLarge: 'w-[37px] h-[39px]'
-    },
-  ]
 
   return (
     <footer 
@@ -53,7 +19,6 @@ const Footer = () => {
           playsInline
           className="absolute inset-0 w-full h-full object-cover rotate-180 scale-y-[-1]"
         >
-          <source src={videoBgWebm} type="video/webm" />
           <source src={videoBgMp4} type="video/mp4" />
         </video>
       </div>
@@ -66,10 +31,11 @@ const Footer = () => {
         <div className="flex items-center w-[424px] justify-between">
           <div className="flex items-center justify-center">
             <div className="flex items-center gap-8 h-[17px]">
-              {navItems.map((item) => (
+              {navLinks.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
+                  {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                   className="font-medium text-[14px] text-ethiq-gray hover:text-white transition-colors leading-[1.2]"
                 >
                   {item.label}
@@ -84,7 +50,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-[17px] h-[17px] flex items-center justify-center opacity-70 hover:opacity-100 transition-all hover:scale-110"
-                  aria-label={`Follow ETHIQ on ${social.label}`}
+                  aria-label={`Follow Haqq Network on ${social.label}`}
                 >
                   <img 
                     src={social.icon} 

@@ -1,15 +1,9 @@
 import { useState, useEffect, useCallback } from 'react'
+import { navLinks, socialLinks } from '../config/links'
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-
-  const navItems = [
-    { label: 'About', href: '#about' },
-    { label: 'Build', href: '#build' },
-    { label: 'Bridge', href: '#bridge' },
-    { label: 'Ecosystem', href: '#ecosystem' },
-  ]
 
   // Handle scroll effect
   useEffect(() => {
@@ -83,10 +77,11 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
+          {navLinks.map((item) => (
             <a
               key={item.label}
               href={item.href}
+              {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
               className="font-medium text-[14px] text-ethiq-gray hover:text-white transition-colors leading-[1.2] relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] after:bg-white after:transition-all hover:after:w-full"
             >
               {item.label}
@@ -99,33 +94,18 @@ const Header = () => {
             role="list"
             aria-label="Social media links"
           >
-            <a
-              href="https://twitter.com/ethiq"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-[17px] h-[17px] flex items-center justify-center opacity-70 hover:opacity-100 transition-all hover:scale-110"
-              aria-label="Follow ETHIQ on X (Twitter)"
-            >
-              <img src="/assets/icons/x-icon.svg" alt="" className="w-[14px] h-[12px]" aria-hidden="true" />
-            </a>
-            <a
-              href="https://discord.gg/ethiq"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-[17px] h-[17px] flex items-center justify-center opacity-70 hover:opacity-100 transition-all hover:scale-110"
-              aria-label="Join ETHIQ Discord community"
-            >
-              <img src="/assets/icons/discord-icon.svg" alt="" className="w-[12px] h-[12px]" aria-hidden="true" />
-            </a>
-            <a
-              href="https://t.me/ethiq"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-[17px] h-[17px] flex items-center justify-center opacity-70 hover:opacity-100 transition-all hover:scale-110"
-              aria-label="Join ETHIQ Telegram channel"
-            >
-              <img src="/assets/icons/telegram-icon.svg" alt="" className="w-[16px] h-[11px]" aria-hidden="true" />
-            </a>
+            {socialLinks.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-[17px] h-[17px] flex items-center justify-center opacity-70 hover:opacity-100 transition-all hover:scale-110"
+                aria-label={`Follow Haqq Network on ${social.label}`}
+              >
+                <img src={social.icon} alt="" className={social.iconSize} aria-hidden="true" />
+              </a>
+            ))}
           </div>
         </div>
 
@@ -156,10 +136,11 @@ const Header = () => {
         aria-hidden={!isMobileMenuOpen}
       >
         <div className="flex flex-col px-5 pb-5 gap-6">
-          {navItems.map((item, index) => (
+          {navLinks.map((item, index) => (
             <a
               key={item.label}
               href={item.href}
+              {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
               className="font-medium text-[18px] text-white py-3 border-b border-ethiq-lighter last:border-0 transition-colors hover:text-ethiq-gray"
               onClick={closeMenu}
               tabIndex={isMobileMenuOpen ? 0 : -1}
@@ -180,36 +161,19 @@ const Header = () => {
             role="list"
             aria-label="Social media links"
           >
-            <a
-              href="https://twitter.com/ethiq"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="opacity-70 hover:opacity-100 transition-all hover:scale-110"
-              aria-label="Follow ETHIQ on X (Twitter)"
-              tabIndex={isMobileMenuOpen ? 0 : -1}
-            >
-              <img src="/assets/icons/x-icon-large.svg" alt="" className="w-[39px] h-[39px]" aria-hidden="true" />
-            </a>
-            <a
-              href="https://discord.gg/ethiq"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="opacity-70 hover:opacity-100 transition-all hover:scale-110"
-              aria-label="Join ETHIQ Discord community"
-              tabIndex={isMobileMenuOpen ? 0 : -1}
-            >
-              <img src="/assets/icons/discord-icon-large.svg" alt="" className="w-[39px] h-[39px]" aria-hidden="true" />
-            </a>
-            <a
-              href="https://t.me/ethiq"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="opacity-70 hover:opacity-100 transition-all hover:scale-110"
-              aria-label="Join ETHIQ Telegram channel"
-              tabIndex={isMobileMenuOpen ? 0 : -1}
-            >
-              <img src="/assets/icons/telegram-icon-large.svg" alt="" className="w-[37px] h-[39px]" aria-hidden="true" />
-            </a>
+            {socialLinks.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="opacity-70 hover:opacity-100 transition-all hover:scale-110"
+                aria-label={`Follow Haqq Network on ${social.label}`}
+                tabIndex={isMobileMenuOpen ? 0 : -1}
+              >
+                <img src={social.iconLarge} alt="" className={social.iconSizeLarge} aria-hidden="true" />
+              </a>
+            ))}
           </div>
         </div>
       </div>
