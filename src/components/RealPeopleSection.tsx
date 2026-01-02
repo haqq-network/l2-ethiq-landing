@@ -1,7 +1,9 @@
 import { useState, useCallback, useEffect } from 'react'
+import { useIsMobile } from '../hooks/useIsMobile'
 
 const RealPeopleSection = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false)
+  const isMobile = useIsMobile()
 
   const handlePlayVideo = useCallback(() => {
     setIsVideoPlaying(true)
@@ -65,13 +67,15 @@ const RealPeopleSection = () => {
         </div>
 
         {/* Play Button - Desktop */}
-        <button
-          onClick={handlePlayVideo}
-          className="hidden md:flex btn-primary w-[174px] hover-lift scroll-scale-in"
-          aria-label="Play ETHIQ introduction video"
-        >
-          <span className="font-medium text-[14px] text-black leading-none">Play Video</span>
-        </button>
+        {!isMobile && (
+          <button
+            onClick={handlePlayVideo}
+            className="btn-primary w-[174px] hover-lift scroll-scale-in"
+            aria-label="Play ETHIQ introduction video"
+          >
+            <span className="font-medium text-[14px] text-black leading-none">Play Video</span>
+          </button>
+        )}
       </section>
 
       {/* Video Section */}

@@ -11,13 +11,13 @@ const Footer = () => {
       aria-label="Site footer"
     >
       {/* Video Background */}
-      <div className="absolute inset-0 mix-blend-lighten overflow-hidden pointer-events-none" aria-hidden="true">
+      <div className="hidden md:block absolute inset-0 mix-blend-lighten overflow-hidden pointer-events-none" aria-hidden="true">
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover rotate-180 scale-y-[-1]"
+          className="absolute left-0 top-[-127.11%] w-full h-[227.13%] max-w-none rotate-180 scale-y-[-1]"
         >
           <source src={videoBgMp4} type="video/mp4" />
         </video>
