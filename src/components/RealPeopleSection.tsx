@@ -1,9 +1,7 @@
 import { useState, useCallback, useEffect } from 'react'
-import { useIsMobile } from '../hooks/useIsMobile'
 
 const RealPeopleSection = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false)
-  const isMobile = useIsMobile()
 
   const handlePlayVideo = useCallback(() => {
     setIsVideoPlaying(true)
