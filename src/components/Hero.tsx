@@ -45,7 +45,7 @@ const Hero = () => {
           <p className="text-[14px] text-ethiq-muted text-center tracking-[-0.28px] leading-[1.2]">
             Secured by Ethereum.
             <br />
-            Built on Superchain.
+            Built on the OP Stack.
           </p>
         </div>
 

@@ -26,8 +26,8 @@ const EcosystemSection = () => {
         >
           <div className="flex flex-col items-center justify-center w-full">
             <p className="gradient-text-paragraph text-[20px] text-center tracking-[-0.8px] leading-[1.36] w-[690px]">
-              Ethiq is a Layer 2 blockchain built on Ethereum and part of the Superchain. It is designed to be the unified value layer for the Haqq ecosystem, aiming to create a shared economic engine that channels value back to the community.
-            </p>
+              Ethiq is a Layer 2 blockchain built on Ethereum. It is designed with a unified value layer within the Haqq ecosystem, aiming to create a shared economic engine that channels value back to the community.
+             </p>
           </div>
         </GradientBorderCard>
 
@@ -35,7 +35,7 @@ const EcosystemSection = () => {
         <div className="md:hidden mt-8 scroll-fade-up">
           <div className="flex flex-col items-center justify-center h-[93px]">
             <p className="text-[14px] text-ethiq-muted text-center tracking-[-0.56px] leading-[1.36] w-[307px]">
-              Ethiq is a Layer 2 blockchain built on Ethereum and part of the Superchain. It is designed to be the unified value layer for the Haqq ecosystem, aiming to create a shared economic engine that channels value back to the community.
+              Ethiq is a Layer 2 blockchain built on Ethereum. It is designed with a unified value layer within the Haqq ecosystem, aiming to create a shared economic engine that channels value back to the community.
             </p>
           </div>
         </div>

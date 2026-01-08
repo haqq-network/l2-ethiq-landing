@@ -52,7 +52,7 @@ const RealPeopleSection = () => {
         <div className="hidden md:flex max-w-[980px] w-full p-5 h-[121px] items-center scroll-fade-up">
           <div className="flex flex-col items-center justify-center w-full">
             <p className="gradient-text-paragraph text-[20px] text-center tracking-[-0.8px] leading-[1.36] w-[768px]">
-              Ethiq is an integral part of the Haqq ecosystem. By uniting with Haqq Network, Firoza Finance, BarakaFi, and others, it aims to generate economic value for its users.
+              Ethiq is an integral part of the Haqq ecosystem. Together with Haqq Network, Firoza Finance, BarakaFi, Deenar Gold, and other applications, it aims to generate economic value for its users.
             </p>
           </div>
         </div>
@@ -61,21 +61,11 @@ const RealPeopleSection = () => {
         <div className="md:hidden mt-8 h-[73px] scroll-fade-up">
           <div className="flex flex-col items-center justify-center h-[70px] w-[307px]">
             <p className="text-[14px] text-ethiq-muted text-center tracking-[-0.56px] leading-[1.36] w-[273px]">
-              Ethiq is an integral part of the Haqq ecosystem. By uniting with Haqq Network, Firoza Finance, BarakaFi, and others, it aims to generate economic value for its users.
+              Ethiq is an integral part of the Haqq ecosystem. Together with Haqq Network, Firoza Finance, BarakaFi, Deenar Gold, and other applications, it aims to generate economic value for its users.  
             </p>
           </div>
         </div>
 
-        {/* Play Button - Desktop */}
-        {!isMobile && (
-          <button
-            onClick={handlePlayVideo}
-            className="btn-primary w-[174px] hover-lift scroll-scale-in"
-            aria-label="Play ETHIQ introduction video"
-          >
-            <span className="font-medium text-[14px] text-black leading-none">Play Video</span>
-          </button>
-        )}
       </section>
 
       {/* Video Section */}
@@ -86,14 +76,6 @@ const RealPeopleSection = () => {
         <div className="max-w-[980px] w-full">
           {/* Mobile Video */}
           <div className="md:hidden flex flex-col gap-6 items-center p-5 rounded-2xl w-full scroll-scale-in">
-            <button
-              onClick={handlePlayVideo}
-              className="bg-white flex items-center justify-center px-3 py-4 rounded-xl w-full hover:bg-gray-100 transition-colors hover-lift"
-              aria-label="Play ETHIQ introduction video in fullscreen"
-            >
-              <span className="font-medium text-[14px] text-black leading-none">Play Video</span>
-            </button>
-            
             <div 
               className="relative w-full rounded-lg overflow-hidden cursor-pointer"
               style={{ aspectRatio: '16/9' }}
