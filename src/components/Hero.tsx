@@ -79,7 +79,7 @@ const Hero = () => {
         {/* Subtitle - Desktop (after buttons) */}
         <div className="hidden md:flex flex-col items-center w-full animate-fade-in animation-delay-600">
           <p className="text-[18px] text-ethiq-muted text-center tracking-[-0.36px] leading-[1.2]">
-            Secured by Ethereum. Built on Superchain.
+            Secured by Ethereum. Built on the OP Stack.
           </p>
         </div>
       </div>
