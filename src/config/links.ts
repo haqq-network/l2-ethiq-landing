@@ -6,7 +6,7 @@ export const navLinks = [
   },
   { 
     label: 'Build', 
-    href: 'https://docs.ethiq.network',
+    href: 'https://docs.haqq.network/l2-network/',
     external: true
   },
   { 
@@ -55,7 +55,7 @@ export const ctaLinks = {
     ariaLabel: 'Bridge to Ethiq blockchain'
   },
   build: {
-    href: 'https://docs.ethiq.network',
+    href: 'https://docs.haqq.network/l2-network/',
     label: 'Start building',
     ariaLabel: 'Start building on Ethiq'
   }
