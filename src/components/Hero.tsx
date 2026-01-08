@@ -4,7 +4,7 @@ import { ctaLinks } from '../config/links'
 const Hero = () => {
   return (
     <header 
-      className="relative flex flex-col items-center justify-center h-[586px] md:h-[861px] pt-[120px] md:pt-0 px-5 overflow-hidden"
+      className="relative flex flex-col items-center justify-center min-h-[calc(100vh-60px)] max-h-[calc(100vh-60px)] pt-[120px] md:pt-[60px] px-5 overflow-hidden"
       role="banner"
       aria-label="Hero section"
     >
